@@ -16,13 +16,18 @@
  * @return {boolean}
  */
 var isSameTree = function (p, q) {
+  //use stringify because it passes an object with the same order or an array
   return JSON.stringify(p) === JSON.stringify(q);
+  //   if (!p && !q) return true;
+  //   if (!p || !q) return false;
+  //   if (p.val !== q.val) return false;
+  //   return isSameTree(p.leftm q.left) && isSameTree(p.right, q.right)
 };
 
 let p1 = [1, 2, 3];
 let q1 = [1, 3, 2];
 
-console.log(isSameTree(p1, q1));
+// console.log(isSameTree(p1, q1));
 
 //Given the root of a binary tree, determine if it is a valid binary search tree (BST).
 
@@ -71,3 +76,7 @@ var check = function (root, lower, upper) {
     check(root.left, root.val, upper) && check(root.right, lower, root.val)
   );
 };
+
+let root = [5, 1, 4, null, null, 3, 6];
+
+console.log(isValidBST(root));
